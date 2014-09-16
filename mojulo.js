@@ -2,51 +2,72 @@ var JS_MOD = {};
 
 JS_MOD.Anim = (function () {
     var ctx;
-    // var xPosition = 0;
-    // var yPosition = 0;
-
-    JS_MOD.width = 300;
+    
+    JS_MOD.width = 100;
     JS_MOD.height = JS_MOD.width;
-
+    JS_MOD.scale = 1;
      var frame =1;
 
       var x, y, intColor;
       var output;
       var data;
-        var timeout;
+    
 
-    var frameLength = 1000; //new frame every 1 seconds
+		var fps = 30;
+		var now;
+		var then = Date.now();
+		var interval = 1000/fps;
+		var delta;
+
 
     function init() {
-        $('body').append('<canvas id="modolo">');
-        var $canvas = $('#modolo');
-        $canvas.attr('width', JS_MOD.width);
-        $canvas.attr('height', JS_MOD.height);
+        $('body').append('<canvas id="mycanvas">');
+        var $canvas = $('#mycanvas');
+        $canvas.attr('width', JS_MOD.width*JS_MOD.scale);
+        $canvas.attr('height', JS_MOD.height*JS_MOD.scale);
+        $canvas.attr('image-rendering',"crisp-edges");
+
+        
+
         var canvas = $canvas[0];
         ctx = canvas.getContext('2d');
-
+        
          output = ctx.createImageData(JS_MOD.width, JS_MOD.height);
+
          data = output.data;
+
 Run();
-       // DrawFrame();
-
-       // setInterval(DrawFrame(), frameLength);
 
 
-         // while(frame<100){
-         //        timeout =setTimeout(aLoop(frame), frameLength); //call itself
-         //        frame++;
-         //    }
+     
+  
+ 
+
+
+
+      
     }
 
     function Run() {
-        // update
-               
-        DrawFrame();
        
-       requestAnimFrame(function() {
-          Run();
+  requestAnimFrame(function() {
+         Run();
         });
+     
+    now = Date.now();
+    delta = now - then;
+     
+    if (delta > interval) {
+        then = now - (delta % interval);
+        DrawFrame();
+      	 frame++;
+		}
+
+
+
+        
+
+      
 
         }
 
@@ -54,16 +75,17 @@ Run();
        
    for (y = 0; y < JS_MOD.height; y++) {
             for (x = 0; x < JS_MOD.width; x++) {
-                intColor = (x * y * frame*10);
+                intColor = (x * y * frame);
             data[((y*JS_MOD.width)+x)*4 + 0] =toR(intColor);
             data[((y*JS_MOD.width)+x)*4 + 1] = toG(intColor);
             data[((y*JS_MOD.width)+x)*4 + 2] = toB(intColor);
             data[((y*JS_MOD.width)+x)*4 + 3] = 255;
             }
         }
-        frame++;
+        
+ 		//ctx.scale(4,4;
         ctx.putImageData(output, 0, 0);
-    
+   		
    
     }
     function toB(num) {
@@ -91,7 +113,7 @@ Run();
         return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
         function(callback) 
         {
-          window.setTimeout(callback, 1000 / 5);
+          window.setTimeout(callback, 2000 );
         };
       })();
 
