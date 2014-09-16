@@ -4,17 +4,24 @@
 	<head>
     	<meta charset="utf-8" />
    		<title>mojulo</title>
+ <div ng-controller="PrefsCtrl">
+    <input type='text' VALUE="x * y * frame" >
+    <button ng-click="run()">Run</button>
+    
+</div>
+     
    			<style>
+
+        
       		 body {
        		 margin: 10px;
        		 padding: 10px;
            background: #0C0C18 ;
-           font-family: Verdana;
+           font-family: monospace;
 
      		 }
          canvas,
     mycanvas {
-    /*transform: scale(2, 2);*/
     transform-origin: 0% 0%;
       -ms-transform-origin: 0% 0%;
       -webkit-transform-origin: 0% 0%;
@@ -30,9 +37,10 @@
     image-rendering: -webkit-optimize-contrast;
      image-rendering:-webkit-pixelated;
     image-rendering: optimize-contrast;
-    -ms-interpolation-mode: nearest-neighbor;
-}
+      -ms-interpolation-mode: nearest-neighbor;
+    }
     </style>
+
 	</head>
 <body>
   
