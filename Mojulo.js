@@ -3,17 +3,21 @@ var JS_MOD = {};
 JS_MOD.Anim = (function () {
     var ctx;
     
-    JS_MOD.width = 100;
-    JS_MOD.height = JS_MOD.width;
-    JS_MOD.scale = 1;
+ 
+    var width = 100;
+    var height = 100;
+    JS_MOD.scale = 5;
+
+   JS_MOD.width = width*JS_MOD.scale;
+   JS_MOD.height = JS_MOD.width;
      var frame =1;
 
-      var x, y, intColor;
+      var x, y, sx, sy, intColor;
       var output;
       var data;
     
 
-		var fps = 30;
+		var fps = 15;
 		var now;
 		var then = Date.now();
 		var interval = 1000/fps;
@@ -23,8 +27,8 @@ JS_MOD.Anim = (function () {
     function init() {
         $('body').append('<canvas id="mycanvas">');
         var $canvas = $('#mycanvas');
-        $canvas.attr('width', JS_MOD.width*JS_MOD.scale);
-        $canvas.attr('height', JS_MOD.height*JS_MOD.scale);
+        $canvas.attr('width',JS_MOD.width);
+        $canvas.attr('height', JS_MOD.height);
         $canvas.attr('image-rendering',"crisp-edges");
 
         
@@ -32,18 +36,11 @@ JS_MOD.Anim = (function () {
         var canvas = $canvas[0];
         ctx = canvas.getContext('2d');
         
-         output = ctx.createImageData(JS_MOD.width, JS_MOD.height);
+         output = ctx.createImageData(width*JS_MOD.scale,height*JS_MOD.scale);
 
          data = output.data;
 
 Run();
-
-
-     
-  
- 
-
-
 
       
     }
@@ -63,27 +60,26 @@ Run();
       	 frame++;
 		}
 
-
-
-        
-
-      
-
         }
 
     function DrawFrame() {
        
-   for (y = 0; y < JS_MOD.height; y++) {
-            for (x = 0; x < JS_MOD.width; x++) {
-                intColor = (x * y * frame);
-            data[((y*JS_MOD.width)+x)*4 + 0] =toR(intColor);
-            data[((y*JS_MOD.width)+x)*4 + 1] = toG(intColor);
-            data[((y*JS_MOD.width)+x)*4 + 2] = toB(intColor);
-            data[((y*JS_MOD.width)+x)*4 + 3] = 255;
+   for (y = 0; y < (height* JS_MOD.scale); y+=JS_MOD.scale) {
+            for (x = 0; x < (width*JS_MOD.scale); x+=JS_MOD.scale) {
+               intColor = (x * y * frame);
+
+
+   			for (sy = 0; sy < JS_MOD.scale; sy++) {
+           	 for (sx = 0; sx < JS_MOD.scale; sx++) {
+		            data[((	(y+sy) *JS_MOD.width) +(x+sx)	)*4 + 0] = toR(intColor);
+		            data[((	(y+sy) *JS_MOD.width) +(x+sx)	)*4 + 1] = toG(intColor);
+		            data[((	(y+sy) *JS_MOD.width) +(x+sx)	)*4 + 2] = toB(intColor);
+		            data[((	(y+sy) *JS_MOD.width) +(x+sx)	)*4 + 3] = 255;
+            		}
+            		}
             }
         }
         
- 		//ctx.scale(4,4;
         ctx.putImageData(output, 0, 0);
    		
    
