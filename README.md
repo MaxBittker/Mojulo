@@ -12,6 +12,6 @@ Todo:
   
   fps cap
   
-  interactivity with math-parsing ala phil
+  interactivity with math-parsing with: https://github.com/uniphil/tweetwars/blob/gh-pages/parser.js
   
   facilitate sharing
