@@ -5,7 +5,7 @@
     	<meta charset="utf-8" />
    		<title>mojulo</title>
  <div ng-controller="PrefsCtrl">
-    <input type='text' VALUE="x * y * frame" >
+    <input id='equation' type='text' VALUE="x * y * tick" >
     <button ng-click="run()">Run</button>
     
 </div>
@@ -43,8 +43,10 @@
 
 	</head>
 <body>
-  
+    <script src="mathparser.js"></script>
     <script src="jquery-1.11.1.js"></script>
     <script src="Mojulo.js"> </script>
+
+
 </body>
 </html>
