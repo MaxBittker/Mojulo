@@ -4,7 +4,7 @@ JS_MOD.Anim = (function () {
   var width = 100;
   var height = 100;
 
-  JS_MOD.scale = 5;
+  JS_MOD.scale = 4;
   JS_MOD.width = width * JS_MOD.scale;
   JS_MOD.height = JS_MOD.width;
   var frame = 1;
@@ -14,7 +14,7 @@ JS_MOD.Anim = (function () {
   var image; // The imagedata
   var fun = function() { return 0; };   // The function entered by the user
 
-  var fps = 15;
+  var fps = 10;
   var then = Date.now();
   var interval = 1000/fps;
 
@@ -65,8 +65,8 @@ JS_MOD.Anim = (function () {
       tick: frame
     };
 
-    for (var y = 0; y < (height * JS_MOD.scale); y += JS_MOD.scale) {
-      for (var x = 0; x < (width * JS_MOD.scale); x += JS_MOD.scale) {
+    for (var y = 0; y < (height); y += 1) {
+      for (var x = 0; x < (width); x += 1) {
         // Ensure the correct x and y are exposed
         exposedVars.x = x;
         exposedVars.y = y;
@@ -76,10 +76,10 @@ JS_MOD.Anim = (function () {
 
         for (var sy = 0; sy < JS_MOD.scale; sy++) {
           for (var sx = 0; sx < JS_MOD.scale; sx++) {
-            image.data[(( (y+sy) *JS_MOD.width) +(x+sx) )*4 + 0] = toR(intColor); // R
-            image.data[(( (y+sy) *JS_MOD.width) +(x+sx) )*4 + 1] = toG(intColor); // G
-            image.data[(( (y+sy) *JS_MOD.width) +(x+sx) )*4 + 2] = toB(intColor); // B
-            image.data[(( (y+sy) *JS_MOD.width) +(x+sx) )*4 + 3] = 255;           // A
+            image.data[(( ((y* JS_MOD.scale)+sy) *JS_MOD.width) +((x* JS_MOD.scale)+sx) )*4 + 0] = toR(intColor); // R
+            image.data[(( ((y* JS_MOD.scale)+sy) *JS_MOD.width) +((x* JS_MOD.scale)+sx) )*4 + 1] = toG(intColor); // G
+            image.data[(( ((y* JS_MOD.scale)+sy) *JS_MOD.width) +((x* JS_MOD.scale)+sx) )*4 + 2] = toB(intColor); // B
+            image.data[(( ((y* JS_MOD.scale)+sy) *JS_MOD.width) +((x* JS_MOD.scale)+sx) )*4 + 3] = 255;           // A
           }
         }
       }
