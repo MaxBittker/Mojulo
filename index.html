@@ -1,6 +1,6 @@
-
 <!doctype html>
 <html>
+<<<<<<< HEAD
 	<head>
     	<meta charset="utf-8" />
    		<title>mojulo</title>
@@ -11,42 +11,42 @@
 </div>
      
    			<style>
+=======
+  <head>
+    <meta charset="utf-8" />
+    <title>mojulo</title>
+>>>>>>> 8beeb646a0092ab4cd3a4c3d274cfaf33f583e4c
 
-        
-      		 body {
-       		 margin: 10px;
-       		 padding: 10px;
-           background: #0C0C18 ;
-           font-family: monospace;
 
-     		 }
-         canvas,
-    mycanvas {
-    /*transform-origin: 0% 0%;
-      -ms-transform-origin: 0% 0%;
-      -webkit-transform-origin: 0% 0%;
-      -o-transform-origin: 0% 0%;
-      -moz-transform-origin: 0% 0%;
-      transform: scale(5, 5);
-      -ms-transform: scale(5, 5); 
-      -webkit-transform: scale(5, 5); 
-      -o-transform: scale(5, 5); 
-      -moz-transform: scale(5, 5); */
-    image-rendering: crisp-edges;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -webkit-optimize-contrast;
-     image-rendering:-webkit-pixelated;
-    image-rendering: optimize-contrast;
-      -ms-interpolation-mode: nearest-neighbor;
-    }
+    <style>
+      body {
+        margin: 10px;
+        padding: 10px;
+        background: #0C0C18 ;
+        font-family: monospace;
+      }
+      canvas,
+      mycanvas {
+        image-rendering: crisp-edges;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: -webkit-pixelated;
+        image-rendering: optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
+      }
     </style>
 
-	</head>
-<body>
+  </head>
+  <body>
+    <form id="equation-form"> <!-- Not the best name, maybe come up with a better one -->
+      <input name="equation" type="text" value="x * y * tick">
+      <button type="submit">Run</button>
+    </form>
+
+    <canvas id="display"></canvas>
+
     <script src="mathparser.js"></script>
     <script src="jquery-1.11.1.js"></script>
     <script src="Mojulo.js"> </script>
-
-
-</body>
+  </body>
 </html>
