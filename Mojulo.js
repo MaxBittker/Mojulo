@@ -64,20 +64,21 @@ JS_MOD.Anim = (function () {
 
 	function DrawFrame() {
         var equ = document.getElementById('equation').value;
-        var fn = mathparser.parse(equ);
+        //var fn = mathparser.parse(equ);
 		for (y = 0; y < (height* JS_MOD.scale); y+=JS_MOD.scale) {
 			for (x = 0; x < (width*JS_MOD.scale); x+=JS_MOD.scale) {
                // = (x * y * frame);
-             	  intColor = fn({
-               	 	sin: Math.sin,
-               	 	cos: Math.cos,
-               	 	rand: Math.random
-              	 }, {
-               		x: (x/JS_MOD.scale),
-               		y: (y/JS_MOD.scale),
-               		pi: Math.PI,
-               		tick: frame
-               	});
+             	  // intColor = fn({
+               	//  	sin: Math.sin,
+               	//  	cos: Math.cos,
+               	//  	rand: Math.random
+              	 // }, {
+               	// 	x: (x/JS_MOD.scale),
+               	// 	y: (y/JS_MOD.scale),
+               	// 	pi: Math.PI,
+               	// 	tick: frame
+               	// });
+				intColor= eval(equ);
 
                for (sy = 0; sy < JS_MOD.scale; sy++) {
                	for (sx = 0; sx < JS_MOD.scale; sx++) {
