@@ -12,36 +12,26 @@ JS_MOD.Anim = (function () {
   // Canvas Variables
   var ctx;   // The canvas context
   var image; // The imagedata
-  var fun;   // The function entered by the user
+  var fun = function() { return 0; };   // The function entered by the user
 
   var fps = 15;
   var then = Date.now();
   var interval = 1000/fps;
 
-  function init(canvas, form) {
+  function init(canvas) {
     canvas.attr('width', JS_MOD.width);
     canvas.attr('height', JS_MOD.height);
     canvas.attr('image-rendering', "crisp-edges");
-
-    form.submit(function(e) {
-      updateEquation(e.currentTarget);
-      e.preventDefault();
-    }); // Bind a handler for the submit event
 
     // Extract the image data from the canvas
     ctx = canvas[0].getContext('2d');
     image = ctx.createImageData(width * JS_MOD.scale, height * JS_MOD.scale);
 
-    updateEquation(form);
     run();
   }
 
-  function updateEquation(form) {
-    // Get the equation data out of the form
-    var equ = $(form).find('input[name=equation]').val();
-    fun = mathparser.parse(equ);
-
-    // Reset the timer
+  function updateEquation(equation) {
+    fun = equation;
     then = Date.now();
     frame = 1;
   }
@@ -117,6 +107,46 @@ JS_MOD.Anim = (function () {
   }
 
   return {
+    init: init,
+    updateEquation: updateEquation
+  };
+})();
+
+JS_MOD.EquationManager = (function() {
+  var FIELD = 'input[name=equation]';
+
+  function init(form, anim) {
+    readHash(form, anim);
+
+    $(window).on('hashchange', function() {
+      readHash(form, anim);
+    });
+
+    $(form).on('submit', function(e) {
+      triggerUpdate(form, anim);
+      e.preventDefault();
+    });
+  }
+
+  function readHash(form, anim) {
+    var $field = $(form).find(FIELD);
+    if (location.hash) {
+      $field.val(location.hash.substring(1));
+    } else {
+      $field.val('x * y * tick');
+    }
+
+    triggerUpdate(form, anim);
+  }
+
+  function triggerUpdate(form, anim) {
+    var $field = $(form).find(FIELD);
+    var equation = $field.val();
+    location.hash = '#' + equation;
+    anim.updateEquation(mathparser.parse(equation));
+  }
+
+  return {
     init: init
   };
 })();
@@ -131,5 +161,6 @@ window.requestAnimFrame = (function(callback) {
 
 
 $(document).ready(function () {
-  JS_MOD.Anim.init($('#display'), $('#equation-form'));
+  JS_MOD.Anim.init($('#display'));
+  JS_MOD.EquationManager.init($('#equation-form'), JS_MOD.Anim);
 });
