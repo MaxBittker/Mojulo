@@ -131,7 +131,7 @@ JS_MOD.EquationManager = (function() {
   function readHash(form, anim) {
     var $field = $(form).find(FIELD);
     if (location.hash) {
-      $field.val(location.hash.substring(1));
+      $field.val(decodeURIComponent(location.hash.substring(1)));
     } else {
       $field.val('x * y * tick');
     }
@@ -142,7 +142,7 @@ JS_MOD.EquationManager = (function() {
   function triggerUpdate(form, anim) {
     var $field = $(form).find(FIELD);
     var equation = $field.val();
-    location.hash = '#' + equation;
+    location.hash = '#' + encodeURIComponent(equation);
     anim.updateEquation(mathparser.parse(equation));
   }
 
