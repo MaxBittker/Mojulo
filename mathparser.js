@@ -82,7 +82,7 @@ performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* actio
 
 var $0 = $$.length - 1;
 switch (yystate) {
-case 1: return new Function('var tmp; return ' + $$[$0-1] + ';'); 
+case 1: return new Function('fns', 'vars', 'var tmp; return ' + $$[$0-1] + ';'); 
 break;
 case 2: this.$ = '(' + $$[$0-2] + '+' + $$[$0] + ')'; 
 break;
@@ -101,11 +101,11 @@ break;
 case 9: this.$ = ''+Number($$[$0]); 
 break;
 case 10:
-        this.$ = 'typeof (tmp = arguments[1][' + JSON.stringify($$[$0]) + ']) !== "undefined" ? tmp : (function() { throw new Error("No such variable with name: ' + $$[$0] + '") })()'
+        this.$ = '(typeof (tmp = vars[' + JSON.stringify($$[$0]) + ']) !== "undefined" ? tmp : (function() { throw new Error("No such variable with name: ' + $$[$0] + '") })())'
     
 break;
 case 11:
-        this.$ = 'typeof (tmp = arguments[0][' + JSON.stringify($$[$0-3]) + ']) !== "undefined" ? tmp(' + $$[$0-1].join(',') + ') : (function() { throw new Error("No such function with name: ' + $$[$0-3] + '") })()'
+        this.$ = '(typeof (tmp = fns[' + JSON.stringify($$[$0-3]) + ']) !== "undefined" ? tmp(' + $$[$0-1].join(',') + ') : (function() { throw new Error("No such function with name: ' + $$[$0-3] + '") })())'
     
 break;
 case 12: this.$ = []; 
