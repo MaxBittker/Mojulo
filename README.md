@@ -1,15 +1,9 @@
 Mojulo
 ======
-
-pretty interactive pixel math renders in your browser 
-
+Interactive pixel art math renders in your browser. 
 
 
 
-Todo:
+Thanks to [mystor](https://github.com/mystor) for the jison parser.
 
-  Fix scaling on chrome (looks nice on firefox)
-  
-  interactivity with math-parsing with: https://github.com/uniphil/tweetwars/blob/gh-pages/parser.js
-  
-  facilitate sharing
+If you find any particulary interesting or beautiful patterns, share them with your friends. Don't have friends? [Tweet them at me!](https://twitter.com/MaxBittker)
