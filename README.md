@@ -1,4 +1,4 @@
-Mojulo[Mojulo](http://maxbittker.github.io/Mojulo/#x%20*%20y%20*%20tick)
+[Mojulo](http://maxbittker.github.io/Mojulo/#x%20*%20y%20*%20tick)
 ======
 Interactive pixel art math renders in your browser.
 
