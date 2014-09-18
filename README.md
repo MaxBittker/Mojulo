@@ -1,6 +1,7 @@
-Mojulo
+Mojulo[Mojulo](http://maxbittker.github.io/Mojulo/#x%20*%20y%20*%20tick)
 ======
-Interactive pixel art math renders in your browser. 
+Interactive pixel art math renders in your browser.
+
 
 [Gallery Here](https://github.com/MaxBittker/Mojulo/wiki/Cool-Patterns)
 
