@@ -28,8 +28,20 @@
   </head>
   <body>
     <form id="equation-form"> <!-- Not the best name, maybe come up with a better one -->
-      <input name="equation" type="text" value="x * y * tick">
-      <button type="submit">Run</button>
+      <input name="equation" size ="33" type="text" value="x * y * tick">
+      <button type="submit" onclick="ErrorDiv.innerHTML = '\n'">Run</button>
+
+
+
+  <div id="ErrorDiv"></div>
+<script type="text/javascript">
+    var div = document.getElementById("ErrorDiv");
+    div.textContent = "";
+    var text = div.textContent;
+</script>
+
+
+
     </form>
 
     <canvas id="display"></canvas>
@@ -61,5 +73,15 @@
   ga('send', 'pageview');
 
 </script>
+
+ <script>
+window.onerror = function(msg, url, linenumber) {
+    ErrorDiv.innerHTML = msg + '\n';
+    return true;
+
+    butt
+}
+</script>
+
   </body>
 </html>
