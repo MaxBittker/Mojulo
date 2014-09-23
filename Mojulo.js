@@ -123,8 +123,8 @@ JS_MOD.EquationManager = (function() {
     });
 
     $(form).on('submit', function(e) {
-      triggerUpdate(form, anim);
       e.preventDefault();
+      triggerUpdate(form, anim);
     });
   }
 
