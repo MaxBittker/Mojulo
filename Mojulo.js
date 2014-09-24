@@ -62,7 +62,9 @@ JS_MOD.Anim = (function () {
       x: 0,
       y: 0,
       pi: Math.PI,
-      time: frame
+      time: frame,
+      r : 0,
+      A : 0
     };
 
     for (var y = 0; y < (height); y += 1) {
@@ -70,6 +72,8 @@ JS_MOD.Anim = (function () {
         // Ensure the correct x and y are exposed
         exposedVars.x = x;
         exposedVars.y = y;
+        exposedVars.r = (Math.sqrt(  (x*x)+(y*y) ));
+        exposedVars.A = (Math.atan(y/x));
 
         // Get the color
         var intColor = fun(exposedFunctions, exposedVars);
