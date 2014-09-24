@@ -62,7 +62,7 @@ JS_MOD.Anim = (function () {
       x: 0,
       y: 0,
       pi: Math.PI,
-      tick: frame
+      time: frame
     };
 
     for (var y = 0; y < (height); y += 1) {
@@ -133,7 +133,7 @@ JS_MOD.EquationManager = (function() {
     if (location.hash) {
       $field.val(decodeURIComponent(location.hash.substring(1)));
     } else {
-      $field.val('x * y * tick');
+      $field.val('x * y * time');
     }
 
     triggerUpdate(form, anim);

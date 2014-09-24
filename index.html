@@ -30,7 +30,7 @@
   </head>
   <body>
     <form id="equation-form"> <!-- Not the best name, maybe come up with a better one -->
-      <input name="equation" size ="33" type="text" value="x * y * tick">
+      <input name="equation" size ="33" type="text" value="x * y * time">
       <button type="submit" onclick="ErrorDiv.innerHTML = '\n'">Run</button>
       <br>
  <canvas id="display"></canvas>
@@ -55,7 +55,7 @@
      <u>Available inputs:</u> <br> 
     x<br> 
     y<br> 
-    tick (i.e. time)<br> 
+    time (measured in frames since you pressed run)<br> 
     +,-,*,/,^<br> 
     ()<br> 
     sin()<br> 
