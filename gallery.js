@@ -25,15 +25,19 @@
     var formula = example.getAttribute('data-formula');
 
     var link = document.createElement('a');
-    link.setAttribute('href', 'index.html#' + btoa(formula));
+    link.setAttribute('href', '.#' + btoa(formula));
 
     var canvas = document.createElement('canvas');
     canvas.setAttribute('width', 100);
     canvas.setAttribute('height', 100);
 
-    var label = document.createTextNode(formula);
-    link.appendChild(label);
+    var label = document.createElement('span');
+    label.setAttribute('class', 'example-label');
+    var labelText = document.createTextNode(formula);
+    label.appendChild(labelText);
+
     link.appendChild(canvas);
+    link.appendChild(label);
 
     example.appendChild(link);
 
