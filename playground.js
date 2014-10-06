@@ -15,7 +15,7 @@
   window.onerror = function(error) {
     console.error(error);
     document.getElementById('error-display').textContent = error;
-    return true;
+    return false;
   };
 
   function Equation(field) {
@@ -69,5 +69,5 @@
 
   equation.update(equationField.value);
 
-  mojulo.run();
+  mojulo.play();
 })();

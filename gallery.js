@@ -42,6 +42,18 @@
     example.appendChild(link);
 
     var mojulo = new Mojulo(formula, canvas);
-    mojulo.run();
+    mojulo.frame = 20;
+    mojulo.drawFrame();
+
+    link.addEventListener('mouseover', function() {
+      mojulo.frame = 1;
+      mojulo.play();
+    });
+
+    link.addEventListener('mouseout', function() {
+      mojulo.frame = 20;
+      mojulo.pause();
+      mojulo.drawFrame();
+    });
   });
 })();

@@ -18,22 +18,34 @@ Mojulo = (function() {
     this.imageData = this.context.createImageData(width * this.scale, height * this.scale);
     this.then      = +Date.now();
     this.frame     = 1;
+    this.paused    = true;
   }
 
   Mojulo.prototype = {
-    run: function() {
-      // Rerun the run() function every animation frame
-      requestAnimFrame(this.run.bind(this));
+    play: function() {
+      this.paused = false;
+      this.step();
+    },
+
+    pause: function() {
+      this.paused = true;
+    },
+
+    step: function() {
+      // Rerun the step() function every animation frame
+      if (this.paused) return;
+      requestAnimFrame(this.step.bind(this));
 
       var now = +Date.now();
       var delta = now - this.then;
       if (delta > interval) {
         this.then = now;
-        this.nextFrame();
+        this.drawFrame();
+        this.frame++;
       }
     },
 
-    nextFrame: function() {
+    drawFrame: function() {
       var equationContext = {
         fns: {
           sin: Math.sin,
@@ -78,8 +90,6 @@ Mojulo = (function() {
       }
 
       this.context.putImageData(this.imageData, 0, 0);
-
-      this.frame++;
     }
   };
 
