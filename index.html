@@ -2,85 +2,50 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>mojulo</title>
+    <title>Mojulo</title>
 
-
+    <link rel="stylesheet" href="mojulo.css">
     <style>
-      body {
-        margin: 10px;
-        padding: 10px;
-        background: #0C0C18 ;
-        font-family: monospace;
-        font-size:normal;
-        color:#cccccc;
-      }
-      canvas,
-      mycanvas {
-        image-rendering: crisp-edges;
-        image-rendering: -moz-crisp-edges;
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: -webkit-pixelated;
-        image-rendering: optimize-contrast;
-        -ms-interpolation-mode: nearest-neighbor;
-      }
     </style>
-
-
 
   </head>
   <body>
+    <h1>Mojulo <small><a href="gallery.html">Gallery</a></small></h1>
     <form id="equation-form"> <!-- Not the best name, maybe come up with a better one -->
       <input name="equation" size ="33" type="text" value="x * y * time">
-      <button type="submit" onclick="ErrorDiv.innerHTML = '\n'">Run</button>
-      <br>
- <canvas id="display"></canvas>
-
-<pre>
-  <div id="ErrorDiv"></div>
-<script type="text/javascript">
-    var div = document.getElementById("ErrorDiv");
-    div.textContent = "";
-    var text = div.textContent;
-</script>
-</pre>
-
+      <button type="submit">Run</button>
     </form>
 
-   
-    <P>
-    Input an equation and hit run to see the results! <br>If the result is a black square, it's evaluating to low numbers only (0-10) <br> 
-  <font size="4">
-  <a href="https://github.com/MaxBittker/Mojulo/wiki/Cool-Patterns">GALLERY</a>  <br> 
-    </font>
-     <u>Available inputs:</u> <br> 
-    x, y<br> 
-    time (measured in frames, starts at 0)<br> 
-    r, A (Polar Co-ordinates)<br> 
-    +,-,*,/,^,%<br> 
-    ()<br> 
-    sin(), cos()<br> 
-    rand()<br> 
-    </P>
+    <canvas id="playground-display" width="400" height="400"></canvas>
+
+    <pre id="error-display"></pre>
+
+    <p>
+      Input an equation and hit run to see the results!<br>
+      If the result is a black square, it's evaluating to low numbers only (0-10)
+    </p>
+    <p>
+      <u>Available inputs:</u> <br>
+      x, y<br>
+      time (measured in frames, starts at 1)<br>
+      r, A (Polar Co-ordinates)<br>
+      +,-,*,/,^,%<br>
+      ()<br>
+      sin(), cos(), tan()<br>
+      sqrt(), rand()<br>
+    </p>
     <script src="mathparser.js"></script>
-    <script src="jquery-1.11.1.js"></script>
-    <script src="Mojulo.js"> </script>
+    <script src="Mojulo.js"></script>
+    <script src="playground.js"></script>
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-54922012-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
- <script>
-window.onerror = function(msg, url, linenumber) {
-    ErrorDiv.innerHTML = msg + '\n';
-    return true;
-}
-</script>
+      ga('create', 'UA-54922012-1', 'auto');
+      ga('send', 'pageview');
+    </script>
 
   </body>
 </html>

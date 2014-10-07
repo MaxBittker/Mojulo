@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mojulo Gallery</title>
+    <link rel="stylesheet" href="mojulo.css">
+  </head>
+
+  <body>
+    <h1>Mojulo Gallery <small><a href=".">Make your own</a></small></h1>
+    <!--
+        Want to add an example to the gallery?
+        Simply edit this file, adding a new <div> below,
+        with the data-formula property set to the formula of your example
+        and submit a pull request!
+      -->
+    <div data-formula="10  + 165 * sin(2.5+ (y-50) / 26 ) + 90*sin( time*0.7 - ((0.1*( x - 50 )^2 + (y-50)^2 )^0.45) ) - 255 * (1 + (((x-1) % 50) - (x % 50))) * (1 + (( (y+30-(time%18)-1) % 10) - ( (y+30-(time%18)) % 10))) * ((y%50) + (50-y)%50)"></div>
+    <div data-formula="(x - y) * time * x * y"></div>
+    <div data-formula="sin(time * 0.2) * cos(time * 0.1) * (125+125*sin(0.01*(2 + sin(0.6*time)*cos(0.4*time))*((- 50 + x + 20 * cos(0.5*time))^2 + (- 50 + y + 20 * sin(0.3*time))^2)))"></div>
+    <div data-formula="cos(x/5)*sin(y/5)*time^3"></div>
+    <div data-formula="((x * y)-(r*time))*time"></div>
+    <div data-formula="r + cos(A * time - r) * 100"></div>
+    <div data-formula="10*((((100-x)^2+y^2)^0.5 + time) % 10) + 10*((((x)^2+y^2)^0.5 + time) % 10)"></div>
+    <div data-formula="cos(x*y+ time )*time^2"></div>
+    <div data-formula="sin(time*x/4) - cos(y*time/4)"></div>
+    <div data-formula="x^2 - y^2 + time*3000"></div>
+    <div data-formula="r * r * sin(time/30)"></div>
+    <div data-formula="sin(r/25) * y * time^2"></div>
+    <div data-formula="cos(r) * sin(r) *100 *sin(time/20) * r /(x*y)"></div>
+    <div data-formula="sin((r+time)/A) * 2"></div>
+    <div data-formula="sin(r/50)* time *4000"></div>
+    <div data-formula="sin(((r-x*time)/(50))+time/4)* time^2"></div>
+
+    <!-- Scripts -->
+    <script src="mathparser.js"></script>
+    <script src="Mojulo.js"></script>
+    <script src="gallery.js"></script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-54922012-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>
