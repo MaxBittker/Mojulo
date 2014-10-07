@@ -51,7 +51,7 @@
     });
 
     link.addEventListener('mouseout', function() {
-      mojulo.frame = 20;
+     // mojulo.frame = 20;
       mojulo.pause();
       mojulo.drawFrame();
     });
