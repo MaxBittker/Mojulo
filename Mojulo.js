@@ -52,7 +52,8 @@ Mojulo = (function() {
           cos: Math.cos,
           tan: Math.tan,
           rand: Math.random,
-          sqrt: Math.sqrt
+          sqrt: Math.sqrt,
+          abs: Math.abs
         },
 
         vars: {
