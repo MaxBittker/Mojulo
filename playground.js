@@ -7,7 +7,7 @@
     document.getElementById('error-display').textContent = e.message;
   }
 
-  function clearError(e) {
+  function clearError() {
     document.getElementById('error-display').textContent = '';
   }
 
@@ -52,6 +52,7 @@
   // Detect updates, and update the Mojulo instance
   equation.onUpdate = function(value) {
     try {
+      clearError();
       mojulo.equation = mathparser.parse(value);
     } catch(e) {
       displayError(e);
