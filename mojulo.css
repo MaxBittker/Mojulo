@@ -85,7 +85,7 @@ div[data-formula] canvas:hover {
     transform: scale(2);
 }
 
-div[data-formula] canvas:hover + .example-label {
+div[data-formula] canvas:hover + .example-label, .example-label:hover {
     background-color: #0C0C18;
     display: flex;
     position: fixed;
