@@ -78,7 +78,7 @@ div[data-formula]:last-of-type canvas {
 div[data-formula] canvas {
     float: left;
     margin: auto;
-    transition: all .25s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 div[data-formula] canvas:hover {
