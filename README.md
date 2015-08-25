@@ -9,5 +9,5 @@ Interactive pixel art math renders in your browser.
 Thanks to [mystor](https://github.com/mystor) for the jison parser and the beautiful new gallery layout.
 
 
-If you find any particulary interesting or beautiful patterns, share them with your friends. [Tweet compositions at me](https://twitter.com/MaxBittker) so I can add them to the gallery!
+If you find any particulary interesting or beautiful patterns, share them with your friends. [Tweet compositions at me](https://twitter.com/MaxBittker) (or open a pull request on gallery.html) so I can add them to the gallery!
 
