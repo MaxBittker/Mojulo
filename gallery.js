@@ -42,7 +42,8 @@
         example.appendChild(link);
 
         var mojulo = new Mojulo(formula, canvas);
-        mojulo.frame = 20;
+//        mojulo.frame = 20;
+        mojulo.frame = 2;
         mojulo.drawFrame();
 
         link.addEventListener('mouseover', function () {

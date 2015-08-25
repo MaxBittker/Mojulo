@@ -82,7 +82,7 @@ div[data-formula] canvas {
 }
 
 div[data-formula] canvas:hover {
-    transform: scale(2);
+/*    transform: scale(2);*/
 }
 
 div[data-formula] canvas:hover + .example-label, .example-label:hover {
